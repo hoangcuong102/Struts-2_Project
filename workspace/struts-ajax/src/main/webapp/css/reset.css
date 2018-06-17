@@ -1,0 +1,146 @@
+@charset "ISO-8859-1";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: url("../img/latar.jpg");
+}
+
+#container {
+	width: 90%;
+	margin: auto;
+}
+/*-------------------HEADER----------------------*/
+#header {
+	width: 100%;
+	background: #1b2838;
+	border-radius: 10px 10px 0px 0px;
+	height: 75px;
+}
+
+.header_title {
+	color: white;
+	text-align: center;
+}
+/*-------------------CONTENT----------------------*/
+#content {
+	width: 100%;
+	height: 700px;
+}
+
+/*-------------------CONTENT LEFT----------------------*/
+.content-left {
+	width: 25%;
+	float: left;
+	height: 700px;
+	background: white;
+	background: url("../img/bg_kiri.png");
+}
+
+.button {
+	background: linear-gradient(pink, #E8E8E8);
+	margin-bottom: 5px;
+	margin-top: 5px;
+	float: right;
+	border-radius: 4px;
+	border: 1px double buttonface;
+	width: 70%;
+	padding: 6px;
+}
+
+a:hover {
+	background-color: orange;
+	border-radius: 4px;
+}
+
+.button_link {
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+}
+
+/*-------------------CONTENT RIGHT----------------------*/
+.content-right {
+	width: 75%;
+	float: left;
+	height: 700px;
+	background: #E8E8E8;
+}
+
+.right_title {
+	padding-top: 5px;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+}
+
+.right_title h3 {
+	font-size: 20px;
+}
+
+.table_login {
+	padding-top: 20px;
+	margin: auto;
+}
+
+.sub_left_content-right {
+	float: left;
+	width: 65%;
+}
+
+.tableA {
+	width: 100%;
+	height: 600px;
+	overflow: scroll;
+}
+
+.table_product {
+	width: 100%;
+	background: white;
+	border-collapse: collapse;
+}
+
+
+
+.sub_right_content-right {
+	width: 35%;
+	float: left;
+}
+
+.sub_right_content-right h3 {
+	background: #990000;
+	height: 40px;
+	text-align: center;
+	color: cyan;
+}
+
+.edit {
+	padding-top: 44.8px;
+}
+
+.clearfix {
+	overflow: auto;
+}
+
+/*-------------------FOOTER----------------------*/
+#footer {
+	float: both;
+	width: 100%;
+	height: 50px;
+	background: #1b2838;
+	border-radius: 0px 0px 10px 10px;
+}
+
+.errors {
+	background-color: #FFCCCC;
+	border: 1px solid #CC0000;
+	width: 400px;
+	margin-bottom: 8px;
+}
+
+.errors li {
+	list-style: none;
+	text-align: center;
+}

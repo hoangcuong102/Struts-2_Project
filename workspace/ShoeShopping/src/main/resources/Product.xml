@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Product">
+	<select id="getProducts" resultClass="com.Entity.Product">
+		select * from products
+	</select>
+	<select id="getProductById" resultClass="com.Entity.Product">
+		select * from products where pid = #pid#
+	</select>
+	<insert id="update" parameterClass="com.Entity.Product">
+	update products set cid = #cid#,
+						pname = #pname#,
+						price = #price#,
+						color = #color#,
+						brand = #brand#,
+						discount = #discount#,
+						descript = #descript#
+					where pid = #pid#
+	</insert>
+	
+	<delete id="deleteProduct" parameterClass="int">
+		delete from products
+		where pid = #pid#
+	</delete>
+	
+	<select id="getImages" resultClass="String">
+		select url from images where pid = #pid#
+	</select>
+	
+	<insert id="addproduct" parameterClass="com.Entity.Product">
+		insert into products values(#pid#,#cid#,#pname#,#price#,#color#,#brand#,#discount#,#descript#)
+	</insert>
+</sqlMap>

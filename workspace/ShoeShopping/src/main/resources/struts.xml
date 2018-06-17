@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="default" namespace="/"
+		extends="json-default, struts-default">
+
+		<interceptors>
+			<interceptor name="permission"
+				class="com.Entity.MyInterceptor">
+				
+				</interceptor>
+		</interceptors>
+
+		<action name="login" class="com.Actions.UserAction" >
+			<result name="success">/home.jsp</result>
+			<result name="error">
+				/Login.jsp
+			</result>
+			<result name="input">/Login.jsp</result>
+		</action>
+		<action name="logout" class="com.Actions.UserAction">
+			<result name="success">/Login.jsp</result>
+		</action>
+		
+		<action name="Profile" class="com.Actions.UserAction">
+			<interceptor-ref name="permission"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="error" type="redirectAction">login</result>
+			<result name="success">/profile.jsp</result>
+			<result name="input" >profile.jsp</result>
+		</action>
+		
+		<action name="ProductManager" class="com.Actions.ProductAction">
+			<result name="success" type="json"></result>
+		
+		</action>
+		
+		<action name="CategoryManager" class="com.Actions.CategoryAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

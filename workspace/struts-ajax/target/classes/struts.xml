@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/"
+		extends="json-default, struts-default">
+		<interceptors>
+			<interceptor name="permission"
+				class="com.Entity.MyInterceptor"></interceptor>
+		</interceptors>
+
+		<action name="Login" class="com.Actions.AccountAction">
+
+			<result name="success">
+				/Home.jsp
+			</result>
+			<result name="error">
+				/Home.jsp
+			</result>
+			<result name="input">
+				/Home.jsp
+			</result>
+		</action>
+		<action name="Logout" class="com.Actions.AccountAction"
+			method="logout">
+			<result name="success">
+				/Home.jsp
+			</result>
+
+		</action>
+		<action name="ProductManagement"
+			class="com.Actions.ProductAction" method="execute">
+			<interceptor-ref name="permission"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="success" type="json">
+
+			</result>
+			<result name="error" type="json">
+
+			</result>
+			<result name="input">
+				/Product.jsp
+
+			</result>
+			<result name="editview" type="json">
+
+
+			</result>
+		</action>
+		<action name="getProduct" class="com.Actions.ProductAction">
+			<interceptor-ref name="permission"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="error">/Home.jsp
+			</result>
+			<result name="success">/Product.jsp
+			</result>
+		</action>
+
+		<action name="getOrder" class="com.Actions.OrderAction">
+			<interceptor-ref name="permission"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="error">/Home.jsp
+			</result>
+			<result name="success">/Order.jsp
+			</result>
+		</action>
+		
+		<action name="OrderManagement" class="com.Actions.OrderAction">
+		<interceptor-ref name="permission"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+		<result name="success" type="json"></result>
+		<result name="error" type="json">
+
+			</result>
+		</action>
+		
+		<action name="CustomerManager" class="com.Actions.CustomerAction">
+		<result name="success" type="json"></result>
+		<result name="error" type="json">
+
+			</result>
+		</action>
+
+	</package>
+</struts>

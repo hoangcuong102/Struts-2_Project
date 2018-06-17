@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+	<select id="getUser" resultClass="com.Entity.User">
+		select * from users where username = #username# and password = #password# or email = #email# and password = #password# 
+	</select>
+	<select id="getUserById" resultClass="com.Entity.User">
+		select * from users where uid=#uid#
+	</select>
+	<update id="updateUser" parameterClass="com.Entity.User">
+		update users set
+			password = #password#,
+			email = #email#
+		where uid = #uid#
+	</update>
+</sqlMap>

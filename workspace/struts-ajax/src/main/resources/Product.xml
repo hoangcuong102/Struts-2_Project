@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Product">
+	<select id="getAll" resultClass="com.Entity.Product">
+		select * from ProductTBL
+	</select>
+
+	<select id="getProductById" resultClass="com.Entity.Product">
+		select * from ProductTBL
+		where ProductID = #productID#
+	</select>
+
+	<insert id="addProduct" parameterClass="com.Entity.Product">
+
+		insert into ProductTBL(ProductName,UnitPrice) values(#productName#,
+		#productPrice#)
+	</insert>
+
+	<update id="updateProduct" parameterClass="com.Entity.Product">
+		update ProductTBL set
+		ProductName = #productName#, UnitPrice = #productPrice# where
+		ProductID = #productID#
+	</update>
+
+	<delete id="deleteProduct" parameterClass="int">
+		delete from ProductTBL
+		where ProductID = #productID#
+	</delete>
+
+	<resultMap id="result" class="com.Entity.Product">
+		<result property="productID" column="ProductID" />
+		<result property="productName" column="ProductName" />
+		<result property="productPrice" column="UnitPrice" />
+		
+	</resultMap>
+	
+	<select id="useResultMap" resultMap="result">
+      SELECT * FROM ProductTBL
+      WHERE ProductID=#productID#
+   </select>
+
+</sqlMap>
